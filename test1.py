@@ -5,7 +5,8 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 pygame.init()
 size = [400, 300]
-screen = pygame.display.set_mode(size)
+#screen = pygame.display.set_mode(size)
+screen = pygame.display.set_mode((400,300),0,32)
 
 pygame.display.set_caption("Bouncing Rectangle")
 done = False
