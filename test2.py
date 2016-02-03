@@ -51,13 +51,6 @@ while True:
         milliseconds -= 1000
         buf= str(minutes) + " : " + str(seconds) 
         label = myfont.render(buf, 1, (255,255,0))
-        label1 = myfont.render(buf, 1, (255,255,0))
-        if show(7):
-            countPin7+=1
-            label1 = confont.render(str(countPin7),1,WHITE)
-        if show(8):
-            countPin8+=1
-            label1 = confont.render(str(countPin8),1,BLUE)
         #else:
         #    label = myfont.render(buf, 1, BLUE)
         x = (size[0]-label.get_width()) / 2
@@ -76,8 +69,17 @@ while True:
             pygame.draw.rect(screen,WHITE,rect5)
         if seconds > 12:
             pygame.draw.rect(screen,GREEN,rect6)
+        
+        if show(7):
+            countPin7+=1
+            label1 = confont.render(str(countPin7),1,WHITE)
+            screen.blit(label1, (x,center))
+        if show(8):
+            countPin8+=1
+            label1 = confont.render(str(countPin8),1,BLUE)
+            screen.blit(label1, (x,center))
+        
         screen.blit(label, (x, y))
-        screen.blit(label1, (x,center))
         pygame.display.flip()
         
 #        print ("{}:{}".format(minutes, seconds))
