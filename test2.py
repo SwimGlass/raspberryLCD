@@ -1,4 +1,15 @@
+import RPi.GPIO as GPIO
+import time 
 import pygame
+
+def show(pin):
+    if GPIO.input(pin):
+        return 1
+    else:
+        return 0
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7, GPIO.IN)
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -35,12 +46,10 @@ while True:
         seconds += 1
         milliseconds -= 1000
         buf= str(minutes) + " : " + str(seconds) 
-        if stat == 0:
+        if show(7):
             label = myfont.render(buf, 1, (255,255,0))
-        if stat == 1:
+        else:
             label = myfont.render(buf, 1, BLUE)
-        if stat == 2:
-            label = myfont.render(buf, 1, RED)
         x = (size[0]-label.get_width()) / 2
         y = (size[1]-label.get_height()) / 2
         screen.fill(BLACK)
@@ -66,4 +75,5 @@ while True:
         stat = (stat + 1) % 3
     milliseconds += clock.tick_busy_loop(60)
 
+GPIO.cleanup()
 pygame.quit()
