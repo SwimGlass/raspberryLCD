@@ -41,6 +41,7 @@ milliseconds = 0
 stat = 0
 countPin7 = 0
 countPin8 = 0
+pinBuf = "0"
 
 while True:
     for event in pygame.event.get():
@@ -72,12 +73,13 @@ while True:
         
         if show(7):
             countPin7+=1
-            label1 = confont.render(str(countPin7),1,WHITE)
-            screen.blit(label1, (x,center))
+            pinBuf = str(countPin7)
         if show(8):
             countPin8+=1
-            label1 = confont.render(str(countPin8),1,BLUE)
-            screen.blit(label1, (x,center))
+            pinBuf = str(countPin8)
+        
+        label1 = confont.render(pinBuf,1,WHITE)
+        screen.blit(label1, (x,center))
         
         screen.blit(label, (x, y))
         pygame.display.flip()
