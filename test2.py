@@ -51,10 +51,10 @@ while True:
         buf= str(minutes) + " : " + str(seconds) 
         label = myfont.render(buf, 1, (255,255,0))
         if show(7):
-            countPin7++
+            countPin7+=1
             label1 = confont.render(str(countPin7),1,WHITE)
         if show(8):
-            countPin8++
+            countPin8+=1
             label1 = confont.render(str(countPin8),1,BLUE)
         #else:
         #    label = myfont.render(buf, 1, BLUE)
