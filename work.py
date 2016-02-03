@@ -19,7 +19,7 @@ pygame.init()
 screen = pygame.display.set_mode((400,300),0,32)
 
 pygame.display.set_caption(title)
-myfont = pygame.font.SysFont("comicsansms", 100)
+myfont = pygame.font.SysFont("comicsansms", 70)
 
 clock = pygame.time.Clock()
 minutes = 0
@@ -42,7 +42,7 @@ while True:
         if stat == 2:
             label = myfont.render(buf, 1, RED)
         x = (size[0]-label.get_width()) / 2
-        y = (size[1]-label.get_height()) / 2
+        y = (size[1]-label.get_height()) - 20
         screen.fill(BLACK)
         if seconds > 2:
             pygame.draw.rect(screen,WHITE,rect1)

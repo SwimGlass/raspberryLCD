@@ -30,13 +30,16 @@ pygame.init()
 screen = pygame.display.set_mode((400,300),0,32)
 
 pygame.display.set_caption(title)
-myfont = pygame.font.SysFont("comicsansms", 100)
+myfont = pygame.font.SysFont("comicsansms", 70)
+confont = pygame.font.SysFont("comicsansms",100)
 
 clock = pygame.time.Clock()
 minutes = 0
 seconds = 0
 milliseconds = 0
 stat = 0
+countPin7 = 0
+countPin8 = 0
 
 while True:
     for event in pygame.event.get():
@@ -46,12 +49,18 @@ while True:
         seconds += 1
         milliseconds -= 1000
         buf= str(minutes) + " : " + str(seconds) 
+        label = myfont.render(buf, 1, (255,255,0))
         if show(7):
-            label = myfont.render(buf, 1, (255,255,0))
-        else:
-            label = myfont.render(buf, 1, BLUE)
+            countPin7++
+            label1 = confont.render(str(countPin7),1,WHITE)
+        if show(8):
+            countPin8++
+            label1 = confont.render(str(countPin8),1,BLUE)
+        #else:
+        #    label = myfont.render(buf, 1, BLUE)
         x = (size[0]-label.get_width()) / 2
-        y = (size[1]-label.get_height()) / 2
+        y = (size[1]-label.get_height()) - 20 
+        center = (size[1]-label.get_height()) / 2
         screen.fill(BLACK)
         if seconds > 2:
             pygame.draw.rect(screen,WHITE,rect1)
@@ -66,10 +75,11 @@ while True:
         if seconds > 12:
             pygame.draw.rect(screen,GREEN,rect6)
         screen.blit(label, (x, y))
+        screen.blit(label1, (x,center))
         pygame.display.flip()
         
 #        print ("{}:{}".format(minutes, seconds))
-    if seconds > 60:
+    if seconds > 59:
         minutes += 1
         seconds -= 60
         stat = (stat + 1) % 3
