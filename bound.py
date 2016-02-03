@@ -1,5 +1,4 @@
 import pygame
-import sys
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -30,17 +29,11 @@ milliseconds = 0
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            exit()
-        if milliseconds > 1000:
-            seconds += 1
-            milliseconds -= 1000
-  #      if seconds > 60:
-  #          minutes += 1
-  #          seconds -= 60
-        buf= str(minutes) + " : " + str(seconds) 
-        #label = myfont.render(str(seconds), 1, (255,255,0))
-        label = myfont.render(buf, 1, (255,255,0))
-        sys.stdout.flush()
+            sys.exit()
+    if milliseconds > 1000:
+        seconds += 1
+        milliseconds -= 1000
+        label = myfont.render(str(seconds), 1, (255,255,0))
         x = (size[0]-label.get_width()) / 2
         y = (size[1]-label.get_height()) / 2
         screen.fill(BLACK)
@@ -60,6 +53,9 @@ while True:
         pygame.display.flip()
         
 #        print ("{}:{}".format(minutes, seconds))
+#    if seconds > 60:
+#        minutes += 1
+#        seconds -= 60
     milliseconds += clock.tick_busy_loop(60)
 
 pygame.quit()

@@ -1,10 +1,10 @@
 import pygame
-import sys
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
+BLUE = (0, 0, 255)
 size = [400, 300]
 rect1 = (10,0,(size[0]-20)/2,10)
 rect2 = ((size[0]-20)/2,0,(size[0]-10),10)
@@ -25,22 +25,22 @@ clock = pygame.time.Clock()
 minutes = 0
 seconds = 0
 milliseconds = 0
-
+stat = 0
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            exit()
-        if milliseconds > 1000:
-            seconds += 1
-            milliseconds -= 1000
-  #      if seconds > 60:
-  #          minutes += 1
-  #          seconds -= 60
+            sys.exit()
+    if milliseconds > 1000:
+        seconds += 1
+        milliseconds -= 1000
         buf= str(minutes) + " : " + str(seconds) 
-        #label = myfont.render(str(seconds), 1, (255,255,0))
-        label = myfont.render(buf, 1, (255,255,0))
-        sys.stdout.flush()
+        if stat == 0:
+            label = myfont.render(buf, 1, (255,255,0))
+        if stat == 1:
+            label = myfont.render(buf, 1, BLUE)
+        if stat == 2:
+            label = myfont.render(buf, 1, RED)
         x = (size[0]-label.get_width()) / 2
         y = (size[1]-label.get_height()) / 2
         screen.fill(BLACK)
@@ -60,6 +60,10 @@ while True:
         pygame.display.flip()
         
 #        print ("{}:{}".format(minutes, seconds))
+    if seconds > 60:
+        minutes += 1
+        seconds -= 60
+        stat = (stat + 1) % 3
     milliseconds += clock.tick_busy_loop(60)
 
 pygame.quit()
