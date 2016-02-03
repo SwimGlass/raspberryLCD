@@ -10,6 +10,7 @@ def show(pin):
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7, GPIO.IN)
+GPIO.setup(8, GPIO.IN)
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -50,6 +51,7 @@ while True:
         milliseconds -= 1000
         buf= str(minutes) + " : " + str(seconds) 
         label = myfont.render(buf, 1, (255,255,0))
+        label1 = myfont.render(buf, 1, (255,255,0))
         if show(7):
             countPin7+=1
             label1 = confont.render(str(countPin7),1,WHITE)
