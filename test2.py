@@ -11,6 +11,9 @@ def show(pin):
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7, GPIO.IN)
 GPIO.setup(8, GPIO.IN)
+GPIO.setup(9, GPIO.IN)
+GPIO.setup(10, GPIO.IN)
+GPIO.setup(11, GPIO.IN)
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -24,6 +27,10 @@ rect3 = (size[0]-10,0,size[0],size[1])
 rect4 = ((size[0]-20)/2,size[1]-10,(size[0]-10),size[1])
 rect5 = (10,size[1]-10,(size[0]-20)/2,size[1])
 rect6 = (0,0,10,size[1])
+rect7 = (200,20,220,40)
+rect8 = (200,40,220,60)
+rect9 = (200,60,220,80)
+rect10 = (200,80,220,100)
 
 title = "Hello, Pygame!"
 pygame.init()
@@ -41,7 +48,11 @@ milliseconds = 0
 stat = 0
 countPin7 = 0
 countPin8 = 0
+flag = 0 #flag for time counting
+pin10Time = 0
 pinBuf = "0"
+pinOn = 0
+
 
 while True:
     for event in pygame.event.get():
@@ -70,14 +81,37 @@ while True:
             pygame.draw.rect(screen,WHITE,rect5)
         if seconds > 12:
             pygame.draw.rect(screen,GREEN,rect6)
-        
-        if show(7):
-            countPin7+=1
-            pinBuf = str(countPin7)
+
         if show(8):
+            pinOn = 1
+            if show(7):
+                countPin7+=1
+                pinBuf = str(countPin7)
+#            else
+#                countPin8+=1
+#                pinBuf = str(countPin8)
+        else if pinOn == 1
+            pinOn = 0
             countPin8+=1
             pinBuf = str(countPin8)
-        
+        if show(9) != 1:
+            if show(10):
+                if flag == 1:
+                    pin10count += 1
+                else
+                    flag = 1
+                    pin10count +=1
+            else
+                pin10count = 0
+                flag = 0
+        if pin10count > 0:
+            pygame.draw.rect(screen,RED,rect7)
+            if pin10count > 1:
+                pygame.draw.rect(screen,WHITE,rect8)
+                if pin10count > 2:
+                    pygame.draw.rect(screen,GREEN,rect9)
+                    if pin10count > 3
+                        pygame.draw.rect(screen,BLUE,rect10)
         label1 = confont.render(pinBuf,1,WHITE)
         screen.blit(label1, (x,center))
         
@@ -85,7 +119,7 @@ while True:
         pygame.display.flip()
         
 #        print ("{}:{}".format(minutes, seconds))
-    if seconds > 59:
+    if seconds > 58:
         minutes += 1
         seconds -= 60
         stat = (stat + 1) % 3
