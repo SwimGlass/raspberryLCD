@@ -9,11 +9,11 @@ def show(pin):
         return 0
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(13, GPIO.IN)
-GPIO.setup(15, GPIO.IN)
-GPIO.setup(16, GPIO.IN)
-GPIO.setup(18, GPIO.IN)
-GPIO.setup(19, GPIO.IN)
+GPIO.setup(29, GPIO.IN)
+GPIO.setup(31, GPIO.IN)
+GPIO.setup(32, GPIO.IN)
+GPIO.setup(33, GPIO.IN)
+GPIO.setup(35, GPIO.IN)
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -82,9 +82,9 @@ while True:
         if seconds > 12:
             pygame.draw.rect(screen,GREEN,rect6)
 
-        if show(15):
+        if show(31):
             pinOn = 1
-            if show(13):
+            if show(29):
                 countPin7+=1
                 pinBuf = str(countPin7)
 #            else:
@@ -94,8 +94,8 @@ while True:
             pinOn = 0
             countPin8+=1
             pinBuf = str(countPin8)
-        if show(16) != 1:
-            if show(18):
+        if show(32) != 1:
+            if show(33):
                 if flag == 1:
                     pin10count += 1
                 else:
