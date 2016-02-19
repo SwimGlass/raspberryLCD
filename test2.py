@@ -87,10 +87,10 @@ while True:
             if show(7):
                 countPin7+=1
                 pinBuf = str(countPin7)
-#            else
+#            else:
 #                countPin8+=1
 #                pinBuf = str(countPin8)
-        else if pinOn == 1
+        elif pinOn == 1:
             pinOn = 0
             countPin8+=1
             pinBuf = str(countPin8)
@@ -98,10 +98,10 @@ while True:
             if show(10):
                 if flag == 1:
                     pin10count += 1
-                else
+                else:
                     flag = 1
                     pin10count +=1
-            else
+            else:
                 pin10count = 0
                 flag = 0
         if pin10count > 0:
