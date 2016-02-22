@@ -40,7 +40,7 @@ rect10 = (200,80,20,20)
 title = "Hello, Pygame!"
 pygame.init()
 
-screen = pygame.display.set_mode((400,300),0,32)
+screen = pygame.display.set_mode(size,0,32)
 
 pygame.display.set_caption(title)
 myfont = pygame.font.SysFont("comicsansms", 70)
