@@ -18,7 +18,7 @@ GPIO.setup(36, GPIO.IN)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
-RED = (255, 0, 0)
+RED = (255, 0, 0
 BLUE = (0, 0, 255)
 size = [300, 200]
 rect1 = (10,0,(size[0]-20)/2,10)
@@ -27,10 +27,14 @@ rect3 = (size[0]-10,0,size[0],size[1])
 rect4 = ((size[0]-20)/2,size[1]-10,(size[0]-10),size[1])
 rect5 = (10,size[1]-10,(size[0]-20)/2,size[1])
 rect6 = (0,0,10,size[1])
-rect7 = (200,20,220,40)
-rect8 = (200,40,220,60)
-rect9 = (200,60,220,80)
-rect10 = (200,80,220,100)
+#rect7 = (200,20,220,40)
+#rect8 = (200,40,220,60)
+#rect9 = (200,60,220,80)
+#rect10 = (200,80,220,100)
+rect7 = (200,20,20,20)
+rect8 = (200,40,20,20)
+rect9 = (200,60,20,20)
+rect10 = (200,80,20,20)
 
 title = "Hello, Pygame!"
 pygame.init()
@@ -48,7 +52,6 @@ milliseconds = 0
 stat = 0
 countPin7 = 0
 countPin8 = 0
-flag = 0 #flag for time counting
 pin10Time = 0
 pinBuf = "0"
 pinOn = 0
@@ -96,14 +99,9 @@ while True:
             pinBuf = str(countPin8)
         if show(32) != 1:
             if show(33):
-                if flag == 1:
-                    pin10count += 1
-                else:
-                    flag = 1
-                    pin10count +=1
+                pin10count +=1
             else:
                 pin10count = 0
-                flag = 0
         if pin10count > 0:
             pygame.draw.rect(screen,RED,rect7)
             if pin10count > 1:
