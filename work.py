@@ -1,4 +1,6 @@
 import pygame
+import sys
+import math
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -44,18 +46,25 @@ while True:
         x = (size[0]-label.get_width()) / 2
         y = (size[1]-label.get_height()) - 20
         screen.fill(BLACK)
-        if seconds > 2:
-            pygame.draw.rect(screen,WHITE,rect1)
-        if seconds > 4:
-            pygame.draw.rect(screen,RED,rect2)
-        if seconds > 6:
-            pygame.draw.rect(screen,GREEN,rect3)
-        if seconds > 8:
-            pygame.draw.rect(screen,RED,rect4)
-        if seconds > 10:
-            pygame.draw.rect(screen,WHITE,rect5)
-        if seconds > 12:
-            pygame.draw.rect(screen,GREEN,rect6)
+        a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
+        b = ((math.pi/2+math.pi*2)%(math.pi*2))
+        #pygame.draw.arc(screen,WHITE,(5,5,280,280),(((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60,((math.pi/2+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60,10)
+        if b > a:
+            pygame.draw.arc(screen,WHITE,(5,5,280,280),a,b,10)
+        if a > b:
+            pygame.draw.arc(screen,WHITE,(5,5,280,280),b,a,10)
+#        if seconds > 2:
+#            pygame.draw.rect(screen,WHITE,rect1)
+#        if seconds > 4:
+#            pygame.draw.rect(screen,RED,rect2)
+#        if seconds > 6:
+#            pygame.draw.rect(screen,GREEN,rect3)
+#        if seconds > 8:
+#            pygame.draw.rect(screen,RED,rect4)
+#       if seconds > 10:
+#            pygame.draw.rect(screen,WHITE,rect5)
+#        if seconds > 12:
+#            pygame.draw.rect(screen,GREEN,rect6)
         screen.blit(label, (x, y))
         pygame.display.flip()
         

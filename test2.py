@@ -24,16 +24,6 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 #rectangle = ([poizion(x,y)],[size(x,y)))
 size = [300, 200]
-rect1 = (10,0,(size[0]-20)/2,10)
-rect2 = ((size[0]-20)/2+10,0,(size[0]-20)/2,10)
-rect3 = (size[0]-10,0,10,size[1])
-rect4 = ((size[0]-20)/2+10,size[1]-10,(size[0]-20)/2,10)
-rect5 = (10,size[1]-10,(size[0]-20)/2,10)
-rect6 = (0,0,10,size[1])
-#rect7 = (200,20,220,40)
-#rect8 = (200,40,220,60)
-#rect9 = (200,60,220,80)
-#rect10 = (200,80,220,100)
 rect7 = (200,20,20,20)
 rect8 = (200,40,20,20)
 rect9 = (200,60,20,20)
@@ -75,18 +65,14 @@ while True:
         y = (size[1]-label.get_height()) - 20 
         center = (size[1]-label.get_height()) / 2
         screen.fill(BLACK)
-        if seconds > 2:
-            pygame.draw.rect(screen,WHITE,rect1)
-        if seconds > 4:
-            pygame.draw.rect(screen,RED,rect2)
-        if seconds > 6:
-            pygame.draw.rect(screen,GREEN,rect3)
-        if seconds > 8:
-            pygame.draw.rect(screen,RED,rect4)
-        if seconds > 10:
-            pygame.draw.rect(screen,WHITE,rect5)
-        if seconds > 12:
-            pygame.draw.rect(screen,GREEN,rect6)
+        
+        a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
+        b = ((math.pi/2+math.pi*2)%(math.pi*2))
+
+        if b > a:
+            pygame.draw.arc(screen,WHITE,(0,0,size),a,b,10)
+        if a > b:
+            pygame.draw.arc(screen,WHITE,(0,0,size),b,a,10)
 
         if show(35):
             pinOn = 1
