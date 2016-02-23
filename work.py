@@ -50,9 +50,9 @@ while True:
         b = ((math.pi/2+math.pi*2)%(math.pi*2))
         #pygame.draw.arc(screen,WHITE,(5,5,280,280),(((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60,((math.pi/2+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60,10)
         if b > a:
-            pygame.draw.arc(screen,WHITE,(5,5,280,280),a,b,10)
+            pygame.draw.arc(screen,WHITE,(0,0,400,300),a,b,10)
         if a > b:
-            pygame.draw.arc(screen,WHITE,(5,5,280,280),b,a,10)
+            pygame.draw.arc(screen,WHITE,(5,5,400,300),b,a,10)
 #        if seconds > 2:
 #            pygame.draw.rect(screen,WHITE,rect1)
 #        if seconds > 4:

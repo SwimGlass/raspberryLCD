@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
-import time 
-from pygame import *
-import ctypes
+import time
+import math
+import pygame
 
 
 def show(pin):
@@ -32,7 +32,11 @@ rect10 = (200,80,20,20)
 title = "Hello, Pygame!"
 pygame.init()
 
-screen = pygame.display.set_mode(size,pygame.FULLSCREEN)
+if e.type is KEYDOWN and e.key == K_w:
+    screen = pygame.display.set_mode(size)
+if e.type is KEYDOWN and e.key == K_f:
+    screen = pygame.display.set_mode(size, FULLSCREEN)
+#screen = pygame.display.set_mode(size,pygame.FULLSCREEN)
 
 pygame.display.set_caption(title)
 myfont = pygame.font.SysFont("comicsansms", 70)
@@ -70,9 +74,9 @@ while True:
         b = ((math.pi/2+math.pi*2)%(math.pi*2))
 
         if b > a:
-            pygame.draw.arc(screen,WHITE,(0,0,size),a,b,10)
+            pygame.draw.arc(screen,WHITE,(0,0,300,200),a,b,10)
         if a > b:
-            pygame.draw.arc(screen,WHITE,(0,0,size),b,a,10)
+            pygame.draw.arc(screen,WHITE,(0,0,300,200),b,a,10)
 
         if show(35):
             pinOn = 1
