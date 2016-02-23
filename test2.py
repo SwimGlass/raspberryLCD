@@ -54,10 +54,10 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-    if e.type is KEYDOWN and e.key == K_w:
-        screen = pygame.display.set_mode(size)
-    if e.type is KEYDOWN and e.key == K_f:
-        screen = pygame.display.set_mode(size, FULLSCREEN)
+        if event.type is KEYDOWN and event.key == K_w:
+            screen = pygame.display.set_mode(size)
+        if event.type is KEYDOWN and event.key == K_f:
+            screen = pygame.display.set_mode(size, FULLSCREEN)
     
     if milliseconds > 1000:
         seconds += 1
