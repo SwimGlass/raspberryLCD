@@ -71,7 +71,7 @@ while True:
         #    label = myfont.render(buf, 1, BLUE)
         x = (size[0]-label.get_width()) / 2
         y = (size[1]-label.get_height()) - 20 
-        center_x = (label.get_width()) / 2
+        center_x = size[0] / 2
         center_y = (size[1]-label.get_height()) / 2
         screen.fill(WHITE)
         
