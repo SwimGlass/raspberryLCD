@@ -52,7 +52,7 @@ pin10Time = 0
 #pinBuf = "0"
 pinOn = 0
 pin36count = 0
-
+pin10count = 0
 
 while True:
     for event in pygame.event.get():
