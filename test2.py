@@ -49,7 +49,7 @@ countPin8 = 0
 countPin9 = 0
 countPin10 = 0
 pin10Time = 0
-#pinBuf = "0"
+pinBuf = " "
 pinOn = 0
 pin36count = 0
 pin10count = 0
@@ -134,6 +134,7 @@ while True:
             elif flag >= 1:
                 countPin9 += 1
                 pinBuf = str(countPin9)
+                flag = 0
             else:
                 pin10count = 0
         else:
