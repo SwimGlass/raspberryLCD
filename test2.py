@@ -25,10 +25,10 @@ BLUE = (0, 0, 255)
 GRAY = (220,220,221)
 #rectangle = ([poizion(x,y)],[size(x,y)))
 size = [300, 200]
-rect7 = (200,20,20,20)
-rect8 = (200,50,20,20)
+rect7 = (200,30,20,20)
+rect8 = (200,55,20,20)
 rect9 = (200,80,20,20)
-rect10 = (200,110,20,20)
+rect10 = (200,105,20,20)
 
 title = "Hello, Pygame!"
 pygame.init()
@@ -53,6 +53,7 @@ pin10Time = 0
 pinOn = 0
 pin36count = 0
 pin10count = 0
+flag = 0
 
 while True:
     for event in pygame.event.get():
@@ -71,8 +72,8 @@ while True:
         #    label = myfont.render(buf, 1, BLUE)
         x = (size[0]-label.get_width()) / 2
         y = (size[1]-label.get_height()) - 20 
-        center_x = size[0] / 2
-        center_y = (size[1]-label.get_height()) / 2
+        center_x = 110
+        center_y = 50
         screen.fill(WHITE)
         
         a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
@@ -126,14 +127,17 @@ while True:
             pinBuf = str(countPin8)
             stat = 2
         if show(32) != 1:
+            stat = 3
             if show(33):
+                flag += 1
                 pin10count +=1
-            else:
+            elif flag >= 1:
                 countPin9 += 1
                 pinBuf = str(countPin9)
-                stat = 3
+            else:
+                pin10count = 0
         else:
-            pin10count = 0
+            flag = 0
         if pin10count > 0:
             pygame.draw.rect(screen,[185,191,218],rect7)
             if pin10count > 1:
