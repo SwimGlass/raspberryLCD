@@ -113,15 +113,17 @@ while True:
         if show(35):
             pinOn = 1
             if show(29):
+                pinOn = 0
                 countPin7+=1
                 pinBuf = str(countPin7)
                 stat = 1
             elif show(36):
+                pinOn = 0
                 pin36count += 1
 #            else:
 #                countPin8+=1
 #                pinBuf = str(countPin8)
-        elif pinOn == 1:
+        if pinOn == 1:
             pinOn = 0
             countPin8+=1
             pinBuf = str(countPin8)
