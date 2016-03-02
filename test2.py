@@ -149,6 +149,7 @@ while True:
                         pygame.draw.rect(screen,[185,191,218],rect10)
         elif pin36count >= 2:
             countPin10+=1
+            pin36count = 0
             pinBuf = str(countPin10)
             stat = 4
         label1 = confont.render(pinBuf,1,BLACK)
