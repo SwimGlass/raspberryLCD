@@ -5,6 +5,14 @@ def show(pin):
         return 1
     else:
         return 0
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(29, GPIO.IN)
+GPIO.setup(35, GPIO.IN)
+GPIO.setup(32, GPIO.IN)
+GPIO.setup(33, GPIO.IN)
+GPIO.setup(36, GPIO.IN)
+
 while True:
     if show(29) == 1:
         print "pin29 ON\n"
