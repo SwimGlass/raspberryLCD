@@ -37,39 +37,42 @@ minutes = 0
 seconds = 0
 milliseconds = 0
 stat = 0
+endCount = 0
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-    if milliseconds > 1000:
-        seconds += 1
-        milliseconds -= 1000
-        buf= str(minutes) + " : " + str(seconds) 
-        if stat == 0:
-            label = myfont.render(buf, 1, BLACK)
-        if stat == 1:
-            label = myfont.render(buf, 1, BLUE)
-        if stat == 2:
-            label = myfont.render(buf, 1, RED)
-        x = (size[0]-label.get_width()) / 2
-        y = (size[1]-label.get_height()) - 20
-        screen.fill(WHITE)
-        a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
-        b = ((math.pi/2+math.pi*2)%(math.pi*2))
+    if endCount < 30:
+        if milliseconds > 1000:
+            seconds += 1
+            endCount += 1
+            milliseconds -= 1000
+            buf= str(minutes) + " : " + str(seconds) 
+            if stat == 0:
+                label = myfont.render(buf, 1, BLACK)
+            if stat == 1:
+                label = myfont.render(buf, 1, BLUE)
+            if stat == 2:
+                label = myfont.render(buf, 1, RED)
+            x = (size[0]-label.get_width()) / 2
+            y = (size[1]-label.get_height()) - 20
+            screen.fill(WHITE)
+            a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
+            b = ((math.pi/2+math.pi*2)%(math.pi*2))
         #pygame.draw.arc(screen,WHITE,(5,5,280,280),(((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60,((math.pi/2+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60,10)
-        if b > a:
-            pygame.draw.arc(screen,[200,200,200],(0,0,300,200),a,b,10)
-        if a > b:
-            pygame.draw.arc(screen,[200,200,200],(0,0,300,200),b,a,10)
+            if b > a:
+                pygame.draw.arc(screen,[200,200,200],(0,0,300,200),a,b,10)
+            if a > b:
+                pygame.draw.arc(screen,[200,200,200],(0,0,300,200),b,a,10)
 #        pygame.draw.circle(screen,circle1)
 #        pygame.draw.circle(screen,circle2)
 #        pygame.draw.circle(screen,circle3)
 #        pygame.draw.circle(screen,circle4)
-        pygame.draw.circle(screen,[55,171,226],[50,50],10,0)#circle1
-        pygame.draw.circle(screen,[86,102,174],[35,70],10,0)#circle2
-        pygame.draw.circle(screen,[40,158,147],[35,100],10,0)#circle3
-        pygame.draw.circle(screen,[40,158,147],[50,120],10,0)#circle4
+            pygame.draw.circle(screen,[55,171,226],[50,50],10,0)#circle1
+            pygame.draw.circle(screen,[86,102,174],[35,70],10,0)#circle2
+            pygame.draw.circle(screen,[40,158,147],[35,100],10,0)#circle3
+            pygame.draw.circle(screen,[40,158,147],[50,120],10,0)#circle4
 #        pygame.draw.circle(screen,GRAY,[50,50],10,0)#circle1
 #        pygame.draw.circle(screen,GRAY,[35,70],10,0)#circle2
 #        pygame.draw.circle(screen,GRAY,[35,100],10,0)#circle3
@@ -86,8 +89,8 @@ while True:
 #            pygame.draw.rect(screen,WHITE,rect5)
 #        if seconds > 12:
 #            pygame.draw.rect(screen,GREEN,rect6)
-        screen.blit(label, (x, y))
-        pygame.display.flip()
+            screen.blit(label, (x, y))
+            pygame.display.flip()
         
 #        print ("{}:{}".format(minutes, seconds))
     if seconds > 60:
