@@ -112,7 +112,7 @@ while True:
 
         if show(35):
             pinOn = 1
-            if show(37):
+            if show(32):
                 pinOn = 0
                 countPin7+=1
                 pinBuf = str(countPin7)
@@ -128,7 +128,7 @@ while True:
             countPin8+=1
             pinBuf = str(countPin8)
             stat = 2
-        if show(32) != 1:
+        if show(37) != 1:
             stat = 3
             if show(33):
                 flag += 1
