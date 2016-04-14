@@ -110,24 +110,28 @@ while True:
             pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
             pygame.draw.circle(screen,GRAY,[50,120],10,0)
 
-        if show(35):
+        if show(36):
+            mode = 2
             pinOn = 1
             if show(32):
                 pinOn = 0
                 countPin7+=1
                 pinBuf = str(countPin7)
                 stat = 1
-            elif show(36):
+            elif show(35):
                 pinOn = 0
                 pin36count += 1
 #            else:
 #                countPin8+=1
 #                pinBuf = str(countPin8)
-        if pinOn == 1:
-            pinOn = 0
-            countPin8+=1
-            pinBuf = str(countPin8)
-            stat = 2
+        if mode == 2 and pinOn == 1 and !show(36) :
+            mode = 1
+        if mode != 2:
+            if pinOn == 1:
+                pinOn = 0
+                countPin8+=1
+                pinBuf = str(countPin8)
+                stat = 2
         if show(37) != 1:
             stat = 3
             if show(33):
