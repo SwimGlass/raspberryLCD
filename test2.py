@@ -24,7 +24,7 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 GRAY = (220,220,221)
 #rectangle = ([poizion(x,y)],[size(x,y)))
-size = [300, 200]
+size = [500, 300]
 rect7 = (200,30,20,20)
 rect8 = (200,55,20,20)
 rect9 = (200,80,20,20)
@@ -62,7 +62,7 @@ pin10count = 0
 flag = 0
 count30 = 0
 mode = 0
-buf= str(minutes) + " : " + str(count30) 
+buf= str(minutes) + " : " + str(seconds) 
 label = myfont.render(buf, 1, BLACK)
 
 def p():
@@ -96,7 +96,7 @@ def p():
         pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
         pygame.draw.circle(screen,GRAY,[50,120],10,0)
     label1 = confont.render(pinBuf,1,BLACK)
-    buf= str(minutes) + " : " + str(count30) 
+    buf= str(minutes) + " : " + str(seconds) 
     label = myfont.render(buf, 1, BLACK)
     screen.blit(label1, (center_x,center_y))    
     screen.blit(label, (x, y))
@@ -144,12 +144,12 @@ while True:
     if milliseconds > 1000:
         seconds += 1
         count30 += 1
-        if count30 >= 15:
+        if count30 >= 30:
             Break = 2
         else:
             Break = 0
         milliseconds -= 1000
-        buf= str(minutes) + " : " + str(count30) 
+        buf= str(minutes) + " : " + str(seconds) 
         label = myfont.render(buf, 1, BLACK)
         #else:
         #    label = myfont.render(buf, 1, BLUE)
