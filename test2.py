@@ -39,7 +39,7 @@ img = "img1.png"
 image = pygame.image.load(img).convert()
 screen.blit(image,(0,0))
 pygame.display.update()
-time.slee(3)
+time.sleep(3)
 
 pygame.display.set_caption(title)
 myfont = pygame.font.SysFont("comicsansms", 70)
@@ -61,10 +61,11 @@ pin36count = 0
 pin10count = 0
 flag = 0
 count30 = 0
+mode = 0
 buf= str(minutes) + " : " + str(seconds) 
 label = myfont.render(buf, 1, BLACK)
 
-def print():
+def p():
     if b > a:
         pygame.draw.arc(screen,GRAY,(0,0,300,200),a,b,10)
     if a > b:
@@ -94,35 +95,40 @@ def print():
         pygame.draw.circle(screen,GRAY,[35,70],10,0)
         pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
         pygame.draw.circle(screen,GRAY,[50,120],10,0)
-        label1 = confont.render(pinBuf,1,BLACK)
-        screen.blit(label1, (center_x,center_y))
-        
-        screen.blit(label, (x, y))
+    label1 = confont.render(pinBuf,1,BLACK)
+    buf= str(minutes) + " : " + str(seconds) 
+    label = myfont.render(buf, 1, BLACK)
+    screen.blit(label1, (center_x,center_y))    
+    screen.blit(label, (x, y))
 
 def total():
-    total1 = myfont.render(str(countPin7),True,WHITE)
+    end1 = countPin7
+    end2 = countPin8
+    end3 = countPin9
+    end4 = countPin10
+    total1 = myfont.render(str(countPin7),True,BLACK)
     screen.blit(total1,(20,150))
     while end1 > 0:
         rect1 = (20,150-end1*2,50,2)
-        pygame.draw.rect(screen,WHITE,rect1)
+        pygame.draw.rect(screen,BLACK,rect1)
         end1 -= 1
-    total2 = myfont.render(str(countPin8),1,WHITE)
+    total2 = myfont.render(str(countPin8),1,BLACK)
     screen.blit(total2,(90,150))
     while end2 > 0:
         rect2 = (90,150-end2*2,50,2)
-        pygame.draw.rect(screen,WHITE,rect2)
+        pygame.draw.rect(screen,BLACK,rect2)
         end2 -= 1
-    total3 = myfont.render(str(countPin9),1,WHITE)
+    total3 = myfont.render(str(countPin9),1,BLACK)
     screen.blit(total3,(160,150))
     while end3 > 0:
         rect3 = (160,150-end3*2,50,2)
-        pygame.draw.rect(screen,WHITE,rect3)
+        pygame.draw.rect(screen,BLACK,rect3)
         end3 -= 1
-    total4 = myfont.render(str(countPin10),1,WHITE)
+    total4 = myfont.render(str(countPin10),1,BLACK)
     screen.blit(total4,(230,150))
     while end4 > 0:
         rect4 = (230,150-end4*2,50,2)
-        pygame.draw.rect(screen,WHITE,rect4)
+        pygame.draw.rect(screen,BLACK,rect4)
         end4 -= 1
  
    
@@ -170,7 +176,7 @@ while True:
 #            else:
 #                countPin8+=1
 #                pinBuf = str(countPin8)
-        if mode == 2 and pinOn == 1 and !show(36) :
+        if mode == 2 and pinOn == 1 and show(36)==0:
             mode = 1
         if mode != 2:
             count30 = 0
@@ -207,7 +213,7 @@ while True:
             pinBuf = str(countPin10)
             stat = 4
         if Break != 2:
-            pint()
+            p()
         else:
             total()
         pygame.display.flip()
