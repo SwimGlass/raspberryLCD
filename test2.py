@@ -55,6 +55,8 @@ pin36count = 0
 pin10count = 0
 flag = 0
 count30 = 0
+buf= str(minutes) + " : " + str(seconds) 
+label = myfont.render(buf, 1, BLACK)
 
 def print():
     if b > a:
@@ -86,6 +88,10 @@ def print():
         pygame.draw.circle(screen,GRAY,[35,70],10,0)
         pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
         pygame.draw.circle(screen,GRAY,[50,120],10,0)
+        label1 = confont.render(pinBuf,1,BLACK)
+        screen.blit(label1, (center_x,center_y))
+        
+        screen.blit(label, (x, y))
 
 def total():
     total1 = myfont.render(str(countPin7),True,WHITE)
@@ -143,10 +149,6 @@ while True:
         
         a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
         b = ((math.pi/2+math.pi*2)%(math.pi*2))
-        if Break != 2:
-            pint()
-        else:
-            total()
         if show(36):
             count30 = 0
             mode = 2
@@ -198,10 +200,10 @@ while True:
             pin36count = 0
             pinBuf = str(countPin10)
             stat = 4
-        label1 = confont.render(pinBuf,1,BLACK)
-        screen.blit(label1, (center_x,center_y))
-        
-        screen.blit(label, (x, y))
+        if Break != 2:
+            pint()
+        else:
+            total()
         pygame.display.flip()
         
 #        print ("{}:{}".format(minutes, seconds))
