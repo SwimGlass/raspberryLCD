@@ -186,9 +186,9 @@ while True:
                 pinBuf = str(countPin8)
                 stat = 2
         if show(32) != 1:
-            count30 = 0
             stat = 3
             if show(33):
+                count30 = 0
                 flag += 1
                 pin10count +=1
             elif flag >= 1:
