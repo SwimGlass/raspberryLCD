@@ -24,7 +24,7 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 GRAY = (220,220,221)
 #rectangle = ([poizion(x,y)],[size(x,y)))
-size = [500, 300]
+size = [450, 300]
 rect7 = (200,30,20,20)
 rect8 = (200,55,20,20)
 rect9 = (200,80,20,20)
@@ -67,9 +67,9 @@ label = myfont.render(buf, 1, BLACK)
 
 def p():
     if b > a:
-        pygame.draw.arc(screen,GRAY,(0,0,300,200),a,b,10)
+        pygame.draw.arc(screen,GRAY,(0,0,450,300),a,b,10)
     if a > b:
-        pygame.draw.arc(screen,GRAY,(0,0,300,200),b,a,10)
+        pygame.draw.arc(screen,GRAY,(0,0,450,300),b,a,10)
     if stat == 0:
         pygame.draw.circle(screen,[55,171,226],[50,50],10,0)
         pygame.draw.circle(screen,[86,102,174],[35,70],10,0)
