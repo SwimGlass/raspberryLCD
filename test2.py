@@ -93,8 +93,8 @@ def p():
     if stat == 4:
         pygame.draw.circle(screen,GRAY,[100,100],15,0)
         pygame.draw.circle(screen,GRAY,[85,130],15,0)
-        pygame.draw.circle(screen,[40,158,147],[85,170],15,0)
-        pygame.draw.circle(screen,GRAY,[100,200],15,0)
+        pygame.draw.circle(screen,GRAY,[85,170],15,0)
+        pygame.draw.circle(screen,[150,195,99],[100,200],15,0)
     label1 = confont.render(pinBuf,1,BLACK)
     buf= str(minutes) + " : " + str(seconds) 
     label = myfont.render(buf, 1, BLACK)
@@ -184,9 +184,9 @@ while True:
                 pinOn = 0
                 countPin8+=1
                 pinBuf = str(countPin8)
-                stat = 2
+                stat = 3
         if show(32) != 1:
-            stat = 3
+            stat = 2
             if show(33):
                 count30 = 0
                 flag += 1
