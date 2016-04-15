@@ -11,7 +11,7 @@ def show(pin):
         return 0
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(37, GPIO.IN)
+GPIO.setup(38, GPIO.IN)
 GPIO.setup(35, GPIO.IN)
 GPIO.setup(32, GPIO.IN)
 GPIO.setup(33, GPIO.IN)
@@ -159,7 +159,7 @@ while True:
             count30 = 0
             mode = 2
             pinOn = 1
-            if show(32):
+            if show(38):
                 pinOn = 0
                 countPin7+=1
                 pinBuf = str(countPin7)
@@ -179,7 +179,7 @@ while True:
                 countPin8+=1
                 pinBuf = str(countPin8)
                 stat = 2
-        if show(37) != 1:
+        if show(32) != 1:
             count30 = 0
             stat = 3
             if show(33):

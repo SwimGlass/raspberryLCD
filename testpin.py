@@ -8,17 +8,17 @@ def show(pin):
         return 0
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(37, GPIO.IN)
+GPIO.setup(38, GPIO.IN)
 GPIO.setup(35, GPIO.IN)
 GPIO.setup(32, GPIO.IN)
 GPIO.setup(33, GPIO.IN)
 GPIO.setup(36, GPIO.IN)
 
 while True:
-    if show(37) == 1:
-        print "pin37 ON\n"
-    if show(37) == 0:
-        print "pin37 OFF\n"
+    if show(38) == 1:
+        print "pin38 ON\n"
+    if show(38) == 0:
+        print "pin38 OFF\n"
     if show(35) == 1:
         print "pin35 ON\n"
     if show(35) == 0:
