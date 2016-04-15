@@ -162,15 +162,16 @@ while True:
         a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
         b = ((math.pi/2+math.pi*2)%(math.pi*2))
         if show(36):
-            count30 = 0
             mode = 2
             pinOn = 1
             if show(38):
+                count30 = 0
                 pinOn = 0
                 countPin7+=1
                 pinBuf = str(countPin7)
                 stat = 1
             elif show(35):
+                count30 = 0
                 pinOn = 0
                 pin36count += 1
 #            else:
@@ -179,7 +180,6 @@ while True:
         if mode == 2 and pinOn == 1 and show(36)==0:
             mode = 1
         if mode != 2:
-            count30 = 0
             if pinOn == 1:
                 pinOn = 0
                 countPin8+=1
