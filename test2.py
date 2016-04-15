@@ -25,10 +25,10 @@ BLUE = (0, 0, 255)
 GRAY = (220,220,221)
 #rectangle = ([poizion(x,y)],[size(x,y)))
 size = [450, 300]
-rect7 = (200,30,20,20)
-rect8 = (200,55,20,20)
-rect9 = (200,80,20,20)
-rect10 = (200,105,20,20)
+rect7 = (250,50,20,20)
+rect8 = (250,75,20,20)
+rect9 = (250,100,20,20)
+rect10 = (250,125,20,20)
 
 title = "Hello, Pygame!"
 pygame.init()
@@ -155,8 +155,8 @@ while True:
         #    label = myfont.render(buf, 1, BLUE)
         x = (size[0]-label.get_width()) / 2
         y = (size[1]-label.get_height()) - 20 
-        center_x = 110
-        center_y = 50
+        center_x = size[0]/2
+        center_y = size[1]/2
         screen.fill(WHITE)
         
         a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
