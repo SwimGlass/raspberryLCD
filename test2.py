@@ -107,27 +107,27 @@ def total():
     end3 = countPin9
     end4 = countPin10
     total1 = myfont.render(str(countPin7),True,BLACK)
-    screen.blit(total1,(20,150))
+    screen.blit(total1,(10,150))
     while end1 > 0:
-        rect1 = (20,150-end1*2,50,2)
+        rect1 = (10,150-end1*2,100,2)
         pygame.draw.rect(screen,BLACK,rect1)
         end1 -= 1
     total2 = myfont.render(str(countPin8),1,BLACK)
-    screen.blit(total2,(90,150))
+    screen.blit(total2,(120,150))
     while end2 > 0:
-        rect2 = (90,150-end2*2,50,2)
+        rect2 = (120,150-end2*2,100,2)
         pygame.draw.rect(screen,BLACK,rect2)
         end2 -= 1
     total3 = myfont.render(str(countPin9),1,BLACK)
-    screen.blit(total3,(160,150))
+    screen.blit(total3,(230,150))
     while end3 > 0:
-        rect3 = (160,150-end3*2,50,2)
+        rect3 = (230,150-end3*2,100,2)
         pygame.draw.rect(screen,BLACK,rect3)
         end3 -= 1
     total4 = myfont.render(str(countPin10),1,BLACK)
-    screen.blit(total4,(230,150))
+    screen.blit(total4,(340,150))
     while end4 > 0:
-        rect4 = (230,150-end4*2,50,2)
+        rect4 = (340,150-end4*2,100,2)
         pygame.draw.rect(screen,BLACK,rect4)
         end4 -= 1
  
