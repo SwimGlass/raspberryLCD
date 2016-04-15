@@ -54,6 +54,66 @@ pinOn = 0
 pin36count = 0
 pin10count = 0
 flag = 0
+count30 = 0
+
+def print():
+    if b > a:
+        pygame.draw.arc(screen,GRAY,(0,0,300,200),a,b,10)
+    if a > b:
+        pygame.draw.arc(screen,GRAY,(0,0,300,200),b,a,10)
+    if stat == 0:
+        pygame.draw.circle(screen,[55,171,226],[50,50],10,0)
+        pygame.draw.circle(screen,[86,102,174],[35,70],10,0)
+        pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
+        pygame.draw.circle(screen,[150,195,99],[50,120],10,0)
+    if stat == 1:
+        pygame.draw.circle(screen,[55,171,226],[50,50],10,0)
+        pygame.draw.circle(screen,GRAY,[35,70],10,0)
+        pygame.draw.circle(screen,GRAY,[35,100],10,0)
+        pygame.draw.circle(screen,GRAY,[50,120],10,0)
+    if stat == 2:
+        pygame.draw.circle(screen,GRAY,[50,50],10,0)
+        pygame.draw.circle(screen,[86,102,174],[35,70],10,0)
+        pygame.draw.circle(screen,GRAY,[35,100],10,0)
+        pygame.draw.circle(screen,GRAY,[50,120],10,0)
+    if stat == 3:
+        pygame.draw.circle(screen,GRAY,[50,50],10,0)
+        pygame.draw.circle(screen,GRAY,[35,70],10,0)
+        pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
+        pygame.draw.circle(screen,GRAY,[50,120],10,0)
+    if stat == 4:
+        pygame.draw.circle(screen,GRAY,[50,50],10,0)
+        pygame.draw.circle(screen,GRAY,[35,70],10,0)
+        pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
+        pygame.draw.circle(screen,GRAY,[50,120],10,0)
+
+def total():
+    total1 = myfont.render(str(countPin7),True,WHITE)
+    screen.blit(total1,(20,150))
+    while end1 > 0:
+        rect1 = (20,150-end1*2,50,2)
+        pygame.draw.rect(screen,WHITE,rect1)
+        end1 -= 1
+    total2 = myfont.render(str(countPin8),1,WHITE)
+    screen.blit(total2,(90,150))
+    while end2 > 0:
+        rect2 = (90,150-end2*2,50,2)
+        pygame.draw.rect(screen,WHITE,rect2)
+        end2 -= 1
+    total3 = myfont.render(str(countPin9),1,WHITE)
+    screen.blit(total3,(160,150))
+    while end3 > 0:
+        rect3 = (160,150-end3*2,50,2)
+        pygame.draw.rect(screen,WHITE,rect3)
+        end3 -= 1
+    total4 = myfont.render(str(countPin10),1,WHITE)
+    screen.blit(total4,(230,150))
+    while end4 > 0:
+        rect4 = (230,150-end4*2,50,2)
+        pygame.draw.rect(screen,WHITE,rect4)
+        end4 -= 1
+ 
+   
 
 while True:
     for event in pygame.event.get():
@@ -65,6 +125,11 @@ while True:
     
     if milliseconds > 1000:
         seconds += 1
+        count30 += 1
+        if count30 >= 30:
+            Break = 2
+        else:
+            Break = 0
         milliseconds -= 1000
         buf= str(minutes) + " : " + str(seconds) 
         label = myfont.render(buf, 1, BLACK)
@@ -78,39 +143,12 @@ while True:
         
         a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
         b = ((math.pi/2+math.pi*2)%(math.pi*2))
-
-        if b > a:
-            pygame.draw.arc(screen,GRAY,(0,0,300,200),a,b,10)
-        if a > b:
-            pygame.draw.arc(screen,GRAY,(0,0,300,200),b,a,10)
-
-        if stat == 0:
-            pygame.draw.circle(screen,[55,171,226],[50,50],10,0)
-            pygame.draw.circle(screen,[86,102,174],[35,70],10,0)
-            pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
-            pygame.draw.circle(screen,[150,195,99],[50,120],10,0)
-        if stat == 1:
-            pygame.draw.circle(screen,[55,171,226],[50,50],10,0)
-            pygame.draw.circle(screen,GRAY,[35,70],10,0)
-            pygame.draw.circle(screen,GRAY,[35,100],10,0)
-            pygame.draw.circle(screen,GRAY,[50,120],10,0)
-        if stat == 2:
-            pygame.draw.circle(screen,GRAY,[50,50],10,0)
-            pygame.draw.circle(screen,[86,102,174],[35,70],10,0)
-            pygame.draw.circle(screen,GRAY,[35,100],10,0)
-            pygame.draw.circle(screen,GRAY,[50,120],10,0)
-        if stat == 3:
-            pygame.draw.circle(screen,GRAY,[50,50],10,0)
-            pygame.draw.circle(screen,GRAY,[35,70],10,0)
-            pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
-            pygame.draw.circle(screen,GRAY,[50,120],10,0)
-        if stat == 4:
-            pygame.draw.circle(screen,GRAY,[50,50],10,0)
-            pygame.draw.circle(screen,GRAY,[35,70],10,0)
-            pygame.draw.circle(screen,[40,158,147],[35,100],10,0)
-            pygame.draw.circle(screen,GRAY,[50,120],10,0)
-
+        if Break != 2:
+            pint()
+        else:
+            total()
         if show(36):
+            count30 = 0
             mode = 2
             pinOn = 1
             if show(32):
@@ -127,12 +165,14 @@ while True:
         if mode == 2 and pinOn == 1 and !show(36) :
             mode = 1
         if mode != 2:
+            count30 = 0
             if pinOn == 1:
                 pinOn = 0
                 countPin8+=1
                 pinBuf = str(countPin8)
                 stat = 2
         if show(37) != 1:
+            count30 = 0
             stat = 3
             if show(33):
                 flag += 1
