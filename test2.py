@@ -35,6 +35,12 @@ pygame.init()
 
 screen = pygame.display.set_mode(size,pygame.FULLSCREEN)
 
+img = "img1.png"
+image = pygame.image.load(img).convert()
+screen.blit(image,(0,0))
+pygame.display.update()
+time.slee(3)
+
 pygame.display.set_caption(title)
 myfont = pygame.font.SysFont("comicsansms", 70)
 confont = pygame.font.SysFont("comicsansms",100)
