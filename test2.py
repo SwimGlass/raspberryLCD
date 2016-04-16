@@ -173,9 +173,9 @@ while True:
                 countPin7+=1
                 pinBuf = str(countPin7)
                 stat = 1
-            elif show(35):
-                count30 = 0
-                if count2 >= 2:
+            if count2 >= 2:
+                if show(35):
+                    count30 = 0
                     pinOn = 0
                     pin36count += 1
                     count2 = 0
