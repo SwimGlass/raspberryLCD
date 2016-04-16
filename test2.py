@@ -68,9 +68,9 @@ label = myfont.render(buf, 1, BLACK)
 
 def p():
     if b > a:
-        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),a,b,20)
+        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),a,b,15)
     if a > b:
-        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),b,a,20)
+        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),b,a,15)
     if stat == 0:
         pygame.draw.circle(screen,[55,171,226],[100,100],15,0)
         pygame.draw.circle(screen,[86,102,174],[85,130],15,0)
@@ -189,7 +189,6 @@ while True:
                 pinOn = 0
                 countPin8+=1
                 pinBuf = str(countPin8)
-                count30 = 0
                 count2 = 0
                 stat = 3
         if show(32) != 1:
