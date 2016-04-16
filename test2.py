@@ -175,14 +175,14 @@ while True:
                 stat = 1
             elif show(35):
                 count30 = 0
-                pinOn = 0
                 if count2 >= 2:
+                    pinOn = 0
                     pin36count += 1
                     count2 = 0
 #            else:
 #                countPin8+=1
 #                pinBuf = str(countPin8)
-        elif pin36count >= 2:
+        if pin36count >= 2:
             countPin10+=1
             pin36count = 0
             pinBuf = str(countPin10)
