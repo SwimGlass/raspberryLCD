@@ -19,18 +19,18 @@ while True:
         print "pin38 ON\n"
     if show(38) == 0:
         print "pin38 OFF\n"
-    if show(35) == 1:
-        print "pin35 ON\n"
-    if show(35) == 0:
-        print "pin35 OFF\n"
+    if show(40) == 1:
+        print "pin40 ON\n"
+    if show(40) == 0:
+        print "pin40 OFF\n"
     if show(32) == 1:
         print "pin32 ON\n"
     if show(32) == 0:
         print "pin32 OFF\n"
-    if show(33) == 1:
-        print "pin33 ON\n"
-    if show(33) == 0:
-        print "pin33 OFF\n"
+    if show(35) == 1:
+        print "pin35 ON\n"
+    if show(35) == 0:
+        print "pin35 OFF\n"
     if show(36) == 1:
         print "pin36 ON\n"
     if show(36) == 0:

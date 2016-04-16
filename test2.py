@@ -14,7 +14,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(38, GPIO.IN)
 GPIO.setup(35, GPIO.IN)
 GPIO.setup(32, GPIO.IN)
-GPIO.setup(33, GPIO.IN)
+GPIO.setup(40, GPIO.IN)
 GPIO.setup(36, GPIO.IN)
 
 BLACK = (0, 0, 0)
@@ -187,7 +187,7 @@ while True:
                 stat = 3
         if show(32) != 1:
             stat = 2
-            if show(33):
+            if show(40):
                 count30 = 0
                 flag += 1
                 pin10count +=1
