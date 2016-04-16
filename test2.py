@@ -122,7 +122,7 @@ def total():
     screen.blit(total3,(252,150))
     while end3 > 0:
         rect3 = (242,150-end3*2,70,2)
-        pygame.draw.rect(screen,40,158,147,rect3)
+        pygame.draw.rect(screen,(40,158,147),rect3)
         end3 -= 1
     total4 = myfont.render(str(countPin10),1,BLACK)
     screen.blit(total4,(356,150))
