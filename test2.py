@@ -182,6 +182,12 @@ while True:
 #            else:
 #                countPin8+=1
 #                pinBuf = str(countPin8)
+        elif pin36count >= 2:
+            countPin10+=1
+            pin36count = 0
+            pinBuf = str(countPin10)
+            stat = 4
+        
         if mode == 2 and pinOn == 1 and show(36)==0:
             mode = 1
         if mode != 2:
@@ -214,11 +220,6 @@ while True:
                     pygame.draw.rect(screen,[185,191,218],rect9)
                     if pin10count > 3:
                         pygame.draw.rect(screen,[185,191,218],rect10)
-        elif pin36count >= 2:
-            countPin10+=1
-            pin36count = 0
-            pinBuf = str(countPin10)
-            stat = 4
         if Break != 2:
             p()
         else:
