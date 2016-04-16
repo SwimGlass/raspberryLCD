@@ -145,7 +145,6 @@ while True:
     if milliseconds > 1000:
         seconds += 1
         count30 += 1
-        count2 += 1
         if count30 >= 30:
             Break = 2
         else:
@@ -164,6 +163,7 @@ while True:
         a = (((math.pi/2-(math.pi*2)/30)+math.pi*2)%(math.pi*2))-minutes*math.pi*2/30
         b = ((math.pi/2+math.pi*2)%(math.pi*2))
         if show(36):
+            count2 += 1
             mode = 2
             pinOn = 1
             if show(38):
