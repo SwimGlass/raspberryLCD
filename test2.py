@@ -103,8 +103,8 @@ def p():
 
 def total():
     end1 = countPin7
-    end2 = countPin8
-    end3 = countPin9
+    end2 = countPin9
+    end3 = countPin8
     end4 = countPin10
     total1 = myfont.render(str(countPin7),True,BLACK)
     screen.blit(total1,(44,150))
