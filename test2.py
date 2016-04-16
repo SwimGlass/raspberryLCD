@@ -35,7 +35,7 @@ pygame.init()
 
 screen = pygame.display.set_mode(size,pygame.FULLSCREEN)
 
-img = "img1.png"
+img = "img1.jpg"
 image = pygame.image.load(img).convert()
 screen.blit(image,(0,0))
 pygame.display.update()
@@ -67,9 +67,9 @@ label = myfont.render(buf, 1, BLACK)
 
 def p():
     if b > a:
-        pygame.draw.arc(screen,GRAY,(0,0,450,300),a,b,10)
+        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),a,b,10)
     if a > b:
-        pygame.draw.arc(screen,GRAY,(0,0,450,300),b,a,10)
+        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),b,a,10)
     if stat == 0:
         pygame.draw.circle(screen,[55,171,226],[100,100],15,0)
         pygame.draw.circle(screen,[86,102,174],[85,130],15,0)
@@ -109,26 +109,26 @@ def total():
     total1 = myfont.render(str(countPin7),True,BLACK)
     screen.blit(total1,(10,150))
     while end1 > 0:
-        rect1 = (10,150-end1*2,100,2)
-        pygame.draw.rect(screen,BLACK,rect1)
+        rect1 = (34,150-end1*2,70,2)
+        pygame.draw.rect(screen,(55,171,226),rect1)
         end1 -= 1
     total2 = myfont.render(str(countPin8),1,BLACK)
     screen.blit(total2,(120,150))
     while end2 > 0:
-        rect2 = (120,150-end2*2,100,2)
-        pygame.draw.rect(screen,BLACK,rect2)
+        rect2 = (138,150-end2*2,70,2)
+        pygame.draw.rect(screen,(86,102,174),rect2)
         end2 -= 1
     total3 = myfont.render(str(countPin9),1,BLACK)
     screen.blit(total3,(230,150))
     while end3 > 0:
-        rect3 = (230,150-end3*2,100,2)
-        pygame.draw.rect(screen,BLACK,rect3)
+        rect3 = (242,150-end3*2,70,2)
+        pygame.draw.rect(screen,40,158,147,rect3)
         end3 -= 1
     total4 = myfont.render(str(countPin10),1,BLACK)
     screen.blit(total4,(340,150))
     while end4 > 0:
-        rect4 = (340,150-end4*2,100,2)
-        pygame.draw.rect(screen,BLACK,rect4)
+        rect4 = (346,150-end4*2,70,2)
+        pygame.draw.rect(screen,(150,195,99),rect4)
         end4 -= 1
  
    
@@ -155,8 +155,8 @@ while True:
         #    label = myfont.render(buf, 1, BLUE)
         x = (size[0]-label.get_width()) / 2
         y = (size[1]-label.get_height()) - 20 
-        center_x = size[0]/2
-        center_y = size[1]/2
+        center_x = 200
+        center_y = 100
         screen.fill(WHITE)
         
         a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
