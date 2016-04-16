@@ -113,13 +113,13 @@ def total():
         rect1 = (34,150-end1*2,70,2)
         pygame.draw.rect(screen,(55,171,226),rect1)
         end1 -= 1
-    total2 = myfont.render(str(countPin8),1,BLACK)
+    total2 = myfont.render(str(countPin9),1,BLACK)
     screen.blit(total2,(148,150))
     while end2 > 0:
         rect2 = (138,150-end2*2,70,2)
         pygame.draw.rect(screen,(86,102,174),rect2)
         end2 -= 1
-    total3 = myfont.render(str(countPin9),1,BLACK)
+    total3 = myfont.render(str(countPin8),1,BLACK)
     screen.blit(total3,(252,150))
     while end3 > 0:
         rect3 = (242,150-end3*2,70,2)
@@ -186,11 +186,11 @@ while True:
             mode = 1
         if mode != 2:
             if pinOn == 1:
+                stat = 3
                 pinOn = 0
                 countPin8+=1
                 pinBuf = str(countPin8)
                 count2 = 0
-                stat = 3
         if show(32) != 1:
             count2 = 0
             stat = 2
