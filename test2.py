@@ -107,25 +107,25 @@ def total():
     end3 = countPin9
     end4 = countPin10
     total1 = myfont.render(str(countPin7),True,BLACK)
-    screen.blit(total1,(10,150))
+    screen.blit(total1,(44,150))
     while end1 > 0:
         rect1 = (34,150-end1*2,70,2)
         pygame.draw.rect(screen,(55,171,226),rect1)
         end1 -= 1
     total2 = myfont.render(str(countPin8),1,BLACK)
-    screen.blit(total2,(120,150))
+    screen.blit(total2,(148,150))
     while end2 > 0:
         rect2 = (138,150-end2*2,70,2)
         pygame.draw.rect(screen,(86,102,174),rect2)
         end2 -= 1
     total3 = myfont.render(str(countPin9),1,BLACK)
-    screen.blit(total3,(230,150))
+    screen.blit(total3,(252,150))
     while end3 > 0:
         rect3 = (242,150-end3*2,70,2)
         pygame.draw.rect(screen,40,158,147,rect3)
         end3 -= 1
     total4 = myfont.render(str(countPin10),1,BLACK)
-    screen.blit(total4,(340,150))
+    screen.blit(total4,(356,150))
     while end4 > 0:
         rect4 = (346,150-end4*2,70,2)
         pygame.draw.rect(screen,(150,195,99),rect4)
@@ -159,7 +159,7 @@ while True:
         center_y = 100
         screen.fill(WHITE)
         
-        a = (((math.pi/2-(math.pi*2)/60)+math.pi*2)%(math.pi*2))-seconds*math.pi*2/60
+        a = (((math.pi/2-(math.pi*2)/30)+math.pi*2)%(math.pi*2))-minutes*math.pi*2/30
         b = ((math.pi/2+math.pi*2)%(math.pi*2))
         if show(36):
             mode = 2
