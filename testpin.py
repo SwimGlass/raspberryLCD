@@ -11,7 +11,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(38, GPIO.IN)
 GPIO.setup(35, GPIO.IN)
 GPIO.setup(32, GPIO.IN)
-GPIO.setup(33, GPIO.IN)
+GPIO.setup(40, GPIO.IN)
 GPIO.setup(36, GPIO.IN)
 
 while True:
