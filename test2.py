@@ -25,10 +25,10 @@ BLUE = (0, 0, 255)
 GRAY = (220,220,221)
 #rectangle = ([poizion(x,y)],[size(x,y)))
 size = [450, 300]
-rect7 = (300,50,20,20)
-rect8 = (300,75,20,20)
-rect9 = (300,100,20,20)
-rect10 = (300,125,20,20)
+rect7 = (300,100,20,20)
+rect8 = (300,125,20,20)
+rect9 = (300,150,20,20)
+rect10 = (300,175,20,20)
 
 title = "Hello, Pygame!"
 pygame.init()
@@ -62,14 +62,15 @@ pin10count = 0
 flag = 0
 count30 = 0
 mode = 0
+count2 = 0
 buf= str(minutes) + " : " + str(seconds) 
 label = myfont.render(buf, 1, BLACK)
 
 def p():
     if b > a:
-        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),a,b,10)
+        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),a,b,20)
     if a > b:
-        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),b,a,10)
+        pygame.draw.arc(screen,(245,206,82),(0,0,450,300),b,a,20)
     if stat == 0:
         pygame.draw.circle(screen,[55,171,226],[100,100],15,0)
         pygame.draw.circle(screen,[86,102,174],[85,130],15,0)
@@ -144,6 +145,7 @@ while True:
     if milliseconds > 1000:
         seconds += 1
         count30 += 1
+        count2 += 1
         if count30 >= 30:
             Break = 2
         else:
@@ -165,6 +167,7 @@ while True:
             mode = 2
             pinOn = 1
             if show(38):
+                count2 = 0
                 count30 = 0
                 pinOn = 0
                 countPin7+=1
@@ -173,7 +176,9 @@ while True:
             elif show(35):
                 count30 = 0
                 pinOn = 0
-                pin36count += 1
+                if count2 >= 2:
+                    pin36count += 1
+                    count2 = 0
 #            else:
 #                countPin8+=1
 #                pinBuf = str(countPin8)
@@ -184,8 +189,11 @@ while True:
                 pinOn = 0
                 countPin8+=1
                 pinBuf = str(countPin8)
+                count30 = 0
+                count2 = 0
                 stat = 3
         if show(32) != 1:
+            count2 = 0
             stat = 2
             if show(40):
                 count30 = 0
