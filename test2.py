@@ -35,7 +35,7 @@ pygame.init()
 
 screen = pygame.display.set_mode(size,pygame.FULLSCREEN)
 
-img = "img1.jpg"
+img = "Logo.jpg"
 image = pygame.image.load(img).convert()
 screen.blit(image,(0,0))
 pygame.display.update()
