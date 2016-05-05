@@ -1,0 +1,15 @@
+### BEGIN INIT INFO
+# Provides: LCD - date / time / ip address
+# # Required-Start: $remote_fs $syslog
+# # Required-Stop: $remote_fs $syslog
+# # Default-Start: 2 3 4 5
+# # Default-Stop: 0 1 6
+# # Short-Description: LCD Display
+# # Description: date / time / ip address
+# ### END INIT INFO
+
+#! /bin/sh
+# /etc/init.d/lcd
+
+cd /home/pi/raspberryLCD/
+sudo python ./test1.py
