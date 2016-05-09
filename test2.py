@@ -63,6 +63,7 @@ flag = 0
 count30 = 0
 mode = 0
 count2 = 0
+count38 = 0
 buf= str(minutes) + " : " + str(seconds) 
 label = myfont.render(buf, 1, BLACK)
 
@@ -167,18 +168,22 @@ while True:
             mode = 2
             pinOn = 1
             if show(38):
+		count 38 = 1
+	    if count38 == 1 and show(38)==0:
                 count2 = 0
                 count30 = 0
                 pinOn = 0
                 countPin7+=1
                 pinBuf = str(countPin7)
                 stat = 1
+		count38=0
             if count2 >= 2:
                 if show(35):
                     count30 = 0
                     pinOn = 0
                     pin36count += 1
                     count2 = 0
+		    count38 = 0
 #            else:
 #                countPin8+=1
 #                pinBuf = str(countPin8)
